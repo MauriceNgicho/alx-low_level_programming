@@ -1,2 +1,0 @@
-#!/bin/bash
-gcc -c $SFILE -o ${SFILE%.c} .o
