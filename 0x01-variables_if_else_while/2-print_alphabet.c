@@ -3,17 +3,21 @@
 /**
  * main - Entry point
  *
- * Description: Prints the alphabets from a-z
+ * Description: Prints the alphabet in lowercase, followed by a new line.
  *
- * Return: Always 0 (success)
-*/
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-	for (char c = 'a'; c <= 'z'; c++)
-	{
-		putchar(c);
-	}
-		putchar('\n');
+	char letter;
 
-		return (0);
+	for (letter = 'a'; letter <= 'z'; letter++)
+	{
+		putchar(letter);
+	}
+	putchar('\n');
+
+
+	return (0);
+
 }
