@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * Main: Entry point
+ * main - Entry point
  *
  * Description: Prints the last digit of a random number
  * and check is its greater than 5, equal to 0
@@ -19,19 +19,18 @@ int main(void)
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 	last_digit = n % 10; /* Get last digit of n. */
-	
-	printf("Last digit of %d is %d and is ", n,last_digit);
+	printf("Last digit of %d is %d and is ", n, last_digit);
 	if (last_digit > 5)
 	{
-		printf("greater than 5 \n");
+		printf("greater than 5\n");
 	}
-	else if(last_digit == 0)
+	else if (last_digit == 0)
 	{
-		printf("o\n");
+		printf("0\n");
 	}
 	else
 	{
-		printf("less that 6 and not 0 \n");
+		printf("less than 6 and not 0\n");
 	}
 	return (0);
 }
