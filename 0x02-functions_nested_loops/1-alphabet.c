@@ -2,7 +2,7 @@
 /**
  * min - Enty point
  *
- * Detail: Print alphabet in lowercase
+ * Description: Print alphabet in lowercase
  *
  * Return: Always 0 (success)
 */
