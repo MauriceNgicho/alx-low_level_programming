@@ -1,5 +1,5 @@
-#include <stdarg.h>  /* for va_list, va_start, va_arg, va_end */
-#include <stdio.h>   /* for printf */
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
  * print_strings - Prints strings, followed by a new line.
@@ -19,7 +19,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		str = va_arg(args, char *);
 		if (str == NULL)
 		{
-			printf("(nill)");
+			printf("(nil)");
 		}
 		else
 		{
