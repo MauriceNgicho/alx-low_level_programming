@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "array_iterator.h"
+#include "function_pointers.h"
 
 /**
  * print_elem - prints an integer
