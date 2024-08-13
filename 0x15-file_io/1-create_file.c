@@ -1,40 +1,41 @@
 #include "main.h"
-#include <stddef.h>
-#include <fcntl.h>  /* For open() */
-#include <unistd.h> /* For write(), close() */
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 /**
- * append_text_to_file - Appends text at the end of a file.
- * @filename: The name of the file.
- * @text_content: The NULL-terminated string to add at the end of the file.
+ * create_file - Creates a file with specified permissions and writes content.
+ * @filename: The name of the file to create.
+ * @text_content: A NULL terminated string to write to the file.
  *
  * Return: 1 on success, -1 on failure.
- *         If filename is NULL return -1.
- *         If text_content is NULL, do not add anything to the file.
- *         Return 1 if the file exists and -1 if the file does not exist
- *         or if you do not have the required permissions to write to the file.
  */
-int append_text_to_file(const char *filename, char *text_content)
+int create_file(const char *filename, char *text_content)
 {
-	int fd, len = 0, write_status = 0;
+	int fd;
+	ssize_t bytes_written;
+	size_t length = 0;
 
 	if (filename == NULL)
 		return (-1);
 
-	fd = open(filename, O_WRONLY | O_APPEND);
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
 	if (fd == -1)
 		return (-1);
 
 	if (text_content != NULL)
 	{
-		while (text_content[len] != '\0');
-		if (write_status == -1)
+		while (text_content[length])
+			length++;
+
+		bytes_written = write(fd, text_content, length);
+		if (bytes_written == -1 || (size_t)bytes_written != length)
 		{
 			close(fd);
 			return (-1);
 		}
 	}
-
 	close(fd);
 	return (1);
 }
